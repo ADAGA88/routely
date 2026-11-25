@@ -1,0 +1,694 @@
+@font-face {
+  font-display: block;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 400;
+  src: url("@routely/brand-assets/fonts/poppins-400.ttf") format("truetype");
+}
+
+@font-face {
+  font-display: block;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 500;
+  src: url("@routely/brand-assets/fonts/poppins-500.ttf") format("truetype");
+}
+
+@font-face {
+  font-display: block;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  src: url("@routely/brand-assets/fonts/poppins-600.ttf") format("truetype");
+}
+
+@font-face {
+  font-display: block;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 700;
+  src: url("@routely/brand-assets/fonts/poppins-700.ttf") format("truetype");
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: Poppins, sans-serif;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body,
+button,
+input,
+select,
+textarea {
+  font-family: Poppins, sans-serif;
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--routely-focus-color, #075e45);
+  outline-offset: 2px;
+}
+
+button,
+input,
+select,
+textarea {
+  font-size: inherit;
+}
+
+.routely-page {
+  align-items: center;
+  background: var(--routely-white);
+  color: var(--routely-charcoal);
+  display: flex;
+  font-family: var(--routely-font-family);
+  justify-content: center;
+  min-height: 100vh;
+  min-height: 100svh;
+  padding: var(--routely-space-lg);
+}
+
+.routely-container {
+  margin: 0 auto;
+  max-width: var(--routely-content-width);
+  width: 100%;
+}
+
+.routely-header {
+  align-items: center;
+  border-bottom: var(--routely-border-width) solid var(--routely-border);
+  display: flex;
+  justify-content: space-between;
+  min-height: var(--routely-header-height);
+}
+
+.routely-logo-link {
+  align-items: center;
+  display: inline-flex;
+  flex: 0 0 auto;
+  text-decoration: none;
+}
+
+.routely-logo-image {
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
+
+.routely-app-badge {
+  align-items: center;
+  background: var(--routely-container);
+  border: var(--routely-border-width) solid var(--routely-border);
+  border-radius: var(--routely-radius-pill);
+  color: var(--routely-charcoal);
+  display: inline-flex;
+  font-size: var(--routely-label-size);
+  font-weight: var(--routely-weight-medium);
+  gap: var(--routely-space-sm);
+  padding: var(--routely-space-sm) var(--routely-space-md);
+}
+
+.routely-app-badge__dot {
+  background: var(--routely-lime);
+  border-radius: var(--routely-radius-pill);
+  height: var(--routely-indicator-size);
+  width: var(--routely-indicator-size);
+}
+
+.routely-hero {
+  align-items: center;
+  display: grid;
+  gap: var(--routely-space-xl);
+  grid-template-columns: minmax(0, 1fr);
+  padding-top: var(--routely-space-lg);
+}
+
+.routely-hero__copy {
+  min-width: 0;
+}
+
+.routely-eyebrow {
+  color: var(--routely-forest);
+  font-size: var(--routely-eyebrow-size);
+  font-weight: var(--routely-weight-bold);
+  letter-spacing: var(--routely-eyebrow-letter-spacing);
+  margin: 0 0 var(--routely-space-md);
+  text-transform: uppercase;
+}
+
+.routely-hero h1 {
+  color: var(--routely-charcoal);
+  font-size: var(--routely-compact-display-size);
+  font-weight: var(--routely-weight-bold);
+  letter-spacing: var(--routely-display-letter-spacing);
+  line-height: var(--routely-compact-heading-line-height);
+  margin: 0 0 var(--routely-space-md);
+  max-width: var(--routely-welcome-heading-max-width);
+}
+
+.routely-hero__description {
+  color: var(--routely-charcoal);
+  font-size: var(--routely-body-size);
+  font-weight: var(--routely-weight-regular);
+  line-height: var(--routely-body-line-height);
+  margin: 0;
+  max-width: var(--routely-welcome-description-max-width);
+}
+
+.routely-primary-action {
+  align-items: center;
+  background: var(--routely-primary, var(--routely-lime));
+  border: 0;
+  border-radius: var(--routely-radius-pill);
+  color: var(--routely-on-primary, var(--routely-charcoal));
+  cursor: not-allowed;
+  display: inline-flex;
+  font-family: var(--routely-font-family);
+  font-size: var(--routely-navigation-size);
+  font-weight: var(--routely-weight-semibold);
+  min-height: var(--routely-button-height);
+  justify-content: center;
+  margin-top: var(--routely-space-lg);
+  padding: 0 var(--routely-space-lg);
+}
+
+.routely-primary-action:disabled {
+  cursor: not-allowed;
+}
+
+.routely-action-note {
+  color: var(--routely-charcoal);
+  font-size: var(--routely-label-size);
+  line-height: var(--routely-footnote-line-height);
+  margin: var(--routely-space-sm) 0 0;
+}
+
+.routely-illustration {
+  background:
+    radial-gradient(
+      circle at 84% 18%,
+      color-mix(in srgb, var(--routely-lime) 18%, transparent),
+      transparent 36%
+    ),
+    var(--routely-container);
+  border: var(--routely-border-width) solid var(--routely-border);
+  border-radius: var(--routely-radius-card);
+  height: var(--routely-compact-illustration-height);
+  overflow: hidden;
+  position: relative;
+}
+
+.routely-illustration__label {
+  background: var(--routely-white);
+  border: var(--routely-border-width) solid var(--routely-border);
+  border-radius: var(--routely-radius-pill);
+  color: var(--routely-forest);
+  font-size: var(--routely-eyebrow-size);
+  font-weight: var(--routely-weight-bold);
+  left: var(--routely-space-lg);
+  letter-spacing: var(--routely-eyebrow-letter-spacing);
+  padding: var(--routely-space-sm) var(--routely-space-md);
+  position: absolute;
+  top: var(--routely-space-lg);
+}
+
+.routely-route {
+  border: var(--routely-route-stroke) dashed
+    color-mix(in srgb, var(--routely-forest) 38%, transparent);
+  border-radius: 50%;
+  height: var(--routely-route-height);
+  left: 18%;
+  position: absolute;
+  top: 24%;
+  transform: rotate(34deg);
+  width: 66%;
+}
+
+.routely-route-marker {
+  align-items: center;
+  border: var(--routely-marker-border) solid var(--routely-white);
+  border-radius: var(--routely-radius-pill);
+  display: flex;
+  height: var(--routely-marker-start);
+  justify-content: center;
+  position: absolute;
+  width: var(--routely-marker-start);
+}
+
+.routely-route-marker span {
+  border-radius: var(--routely-radius-pill);
+  height: var(--routely-inner-dot);
+  width: var(--routely-inner-dot);
+}
+
+.routely-route-marker--start {
+  background: var(--routely-forest);
+  left: 23%;
+  top: 36%;
+}
+
+.routely-route-marker--start span {
+  background: var(--routely-lime);
+}
+
+.routely-route-marker--end {
+  background: var(--routely-lime);
+  height: var(--routely-marker-end);
+  right: 20%;
+  top: 58%;
+  width: var(--routely-marker-end);
+}
+
+.routely-route-marker--end span {
+  background: var(--routely-forest);
+  height: var(--routely-marker-end-dot);
+  width: var(--routely-marker-end-dot);
+}
+
+.routely-illustration__note {
+  background: var(--routely-white);
+  border: var(--routely-border-width) solid var(--routely-border);
+  border-radius: var(--routely-radius-md);
+  bottom: var(--routely-space-md);
+  box-shadow: var(--routely-card-shadow);
+  display: grid;
+  gap: var(--routely-space-xs);
+  padding: var(--routely-space-md);
+  position: absolute;
+  right: var(--routely-space-md);
+}
+
+.routely-illustration__note strong {
+  color: var(--routely-charcoal);
+  font-size: var(--routely-navigation-size);
+  font-weight: var(--routely-weight-semibold);
+}
+
+.routely-illustration__note span {
+  color: var(--routely-charcoal);
+  font-size: var(--routely-label-size);
+}
+
+.routely-preview {
+  margin-top: var(--routely-space-xl);
+}
+
+.routely-preview__heading {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--routely-space-sm) var(--routely-space-md);
+  justify-content: space-between;
+  margin-bottom: var(--routely-space-md);
+}
+
+.routely-preview__heading h2 {
+  color: var(--routely-charcoal);
+  font-size: var(--routely-section-heading-size);
+  font-weight: var(--routely-weight-semibold);
+  margin: 0;
+}
+
+.routely-preview__heading p {
+  color: var(--routely-charcoal);
+  font-size: var(--routely-label-size);
+  margin: 0;
+}
+
+.routely-preview__steps {
+  display: grid;
+  gap: var(--routely-space-md);
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.routely-step {
+  align-items: flex-start;
+  background: var(--routely-container);
+  border: var(--routely-border-width) solid var(--routely-border);
+  border-radius: var(--routely-radius-card);
+  display: flex;
+  gap: var(--routely-space-md);
+  padding: var(--routely-space-md);
+}
+
+.routely-step__number {
+  color: var(--routely-forest);
+  flex: 0 0 auto;
+  font-size: var(--routely-label-size);
+  font-weight: var(--routely-weight-bold);
+}
+
+.routely-step h3 {
+  color: var(--routely-charcoal);
+  font-size: var(--routely-card-heading-size);
+  font-weight: var(--routely-weight-semibold);
+  line-height: var(--routely-card-heading-line-height);
+  margin: 0;
+}
+
+.routely-step p {
+  color: var(--routely-charcoal);
+  font-size: var(--routely-label-size);
+  line-height: var(--routely-supporting-line-height);
+  margin: var(--routely-space-xs) 0 0;
+}
+
+.routely-footer {
+  border-top: var(--routely-border-width) solid var(--routely-border);
+  color: var(--routely-charcoal);
+  font-size: var(--routely-label-size);
+  line-height: var(--routely-footnote-line-height);
+  margin-top: var(--routely-space-lg);
+  padding-top: var(--routely-space-md);
+}
+
+.routely-page--status {
+  background: var(--routely-background);
+}
+
+.routely-status-card {
+  background: var(--routely-white);
+  border: var(--routely-border-width) solid var(--routely-border);
+  border-radius: var(--routely-radius-panel);
+  box-shadow: var(--routely-card-shadow);
+  max-width: var(--routely-status-card-max-width);
+  padding: var(--routely-space-xl);
+  width: 100%;
+}
+
+.routely-status-card .routely-logo-link {
+  margin-bottom: var(--routely-space-lg);
+}
+
+.routely-status-card .routely-eyebrow {
+  margin-bottom: var(--routely-space-sm);
+}
+
+.routely-status-card h1 {
+  color: var(--routely-charcoal);
+  font-size: var(--routely-heading-size);
+  font-weight: var(--routely-weight-bold);
+  margin: 0 0 var(--routely-space-sm);
+}
+
+.routely-status-card__message {
+  color: var(--routely-charcoal);
+  font-size: var(--routely-body-size);
+  line-height: var(--routely-body-line-height);
+  margin: 0;
+}
+
+.routely-status-card__message.is-error {
+  color: var(--routely-error);
+}
+
+.routely-page-container {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--routely-space-lg);
+  padding-right: var(--routely-space-lg);
+  width: 100%;
+}
+
+.routely-button {
+  align-items: center;
+  border: var(--routely-border-width) solid transparent;
+  border-radius: var(--routely-radius-md);
+  cursor: pointer;
+  display: inline-flex;
+  font-family: var(--routely-font-family);
+  font-size: var(--routely-button-size);
+  font-weight: var(--routely-weight-semibold);
+  gap: var(--routely-space-sm);
+  height: var(--routely-button-height);
+  justify-content: center;
+  line-height: var(--routely-button-line-height);
+  min-width: var(--routely-touch-target);
+  padding: 0 var(--routely-space-lg);
+  transition:
+    background-color var(--routely-motion-standard) ease,
+    border-color var(--routely-motion-standard) ease,
+    color var(--routely-motion-standard) ease,
+    opacity var(--routely-motion-standard) ease,
+    transform var(--routely-motion-standard) ease;
+}
+
+.routely-button:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+.routely-button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.routely-button:focus-visible,
+.routely-field__input:focus-visible {
+  outline: 3px solid var(--routely-focus-color, #075e45);
+  outline-offset: 2px;
+}
+
+.routely-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.52;
+}
+
+.routely-button--primary {
+  background: var(--routely-primary, var(--routely-lime));
+  border-radius: var(--routely-radius-pill);
+  color: var(--routely-on-primary, var(--routely-charcoal));
+}
+
+.routely-button--destructive {
+  background: var(--routely-error);
+  border-radius: var(--routely-radius-pill);
+  color: var(--routely-white);
+}
+
+.routely-button--primary svg {
+  color: var(--routely-on-primary, var(--routely-charcoal));
+}
+
+.routely-appearance-bar {
+  align-items: flex-end;
+  background: var(--appearance-white);
+  display: flex;
+  flex-direction: column;
+  padding: 0 var(--appearance-medium);
+  position: relative;
+  z-index: 1;
+}
+
+.routely-appearance-switch {
+  align-items: center;
+  background: var(--appearance-white);
+  border: 0;
+  color: var(--appearance-text);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  min-height: var(--appearance-touch);
+  min-width: var(--appearance-touch);
+  padding: 0;
+}
+
+.routely-appearance-switch:disabled {
+  cursor: wait;
+  opacity: 0.6;
+}
+
+.routely-appearance-notice {
+  animation: routely-appearance-drop var(--appearance-motion) ease-out;
+  background: var(--appearance-white);
+  border: 1px solid var(--appearance-border);
+  border-radius: var(--appearance-notice-radius);
+  box-shadow: var(--appearance-shadow);
+  color: var(--appearance-text);
+  font-size: var(--appearance-label);
+  font-weight: var(--appearance-weight);
+  padding: var(--appearance-small) var(--appearance-medium);
+  pointer-events: none;
+  position: fixed;
+  left: 50vw;
+  max-width: calc(100% - var(--appearance-medium) * 2);
+  top: var(--appearance-small);
+  transform: translateX(-50%);
+}
+
+@keyframes routely-appearance-drop {
+  from {
+    opacity: 0;
+    transform: translate(-50%, calc(0px - var(--appearance-medium)));
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+.routely-appearance-error {
+  color: var(--appearance-error);
+  font-size: var(--appearance-label);
+  margin: 4px 0;
+}
+
+.routely-button--destructive svg {
+  color: var(--routely-white);
+}
+
+.routely-button--secondary {
+  background: var(--routely-container);
+  border-color: var(--routely-border);
+  border-radius: var(--routely-radius-secondary);
+  color: var(--routely-forest);
+}
+
+.routely-button--quiet {
+  background: transparent;
+  border-radius: var(--routely-radius-md);
+  color: var(--routely-forest);
+}
+
+.routely-button--full {
+  width: 100%;
+}
+
+.routely-surface {
+  border: var(--routely-border-width) solid var(--routely-border);
+  border-radius: var(--routely-radius-card);
+  padding: var(--routely-space-lg);
+}
+
+.routely-surface--default {
+  background: var(--routely-white);
+}
+
+.routely-surface--muted {
+  background: var(--routely-container);
+}
+
+.routely-field {
+  display: grid;
+  gap: var(--routely-space-xs);
+}
+
+.routely-field__label {
+  color: var(--routely-charcoal);
+  font-size: var(--routely-label-size);
+  font-weight: var(--routely-weight-medium);
+}
+
+.routely-field__input {
+  background: var(--routely-white);
+  border: var(--routely-border-width) solid var(--routely-border);
+  border-radius: var(--routely-radius-input);
+  color: var(--routely-charcoal);
+  font-family: var(--routely-font-family);
+  font-size: var(--routely-body-size);
+  min-height: var(--routely-button-height);
+  padding: 0 var(--routely-space-md);
+  transition: border-color var(--routely-motion-standard) ease;
+  width: 100%;
+}
+
+.routely-field__input::placeholder {
+  color: var(--routely-muted);
+}
+
+.routely-field__input.is-error {
+  border-color: var(--routely-error);
+}
+
+.routely-field__error {
+  color: var(--routely-error);
+  font-size: var(--routely-label-size);
+  margin: 0;
+}
+
+.routely-button__spinner {
+  animation: routely-spin 800ms linear infinite;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  height: 16px;
+  width: 16px;
+}
+
+@keyframes routely-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 479px) {
+  .routely-page-container {
+    padding-left: var(--routely-space-md);
+    padding-right: var(--routely-space-md);
+  }
+}
+
+@media (min-width: 768px) {
+  .routely-page {
+    padding: var(--routely-space-xl);
+  }
+
+  .routely-hero {
+    gap: var(--routely-space-xl);
+    grid-template-columns: minmax(0, 1fr) minmax(350px, 0.9fr);
+    padding-top: var(--routely-space-xl);
+  }
+
+  .routely-hero h1 {
+    font-size: var(--routely-display-size);
+    line-height: var(--routely-heading-line-height);
+  }
+
+  .routely-illustration {
+    height: var(--routely-illustration-height);
+  }
+
+  .routely-preview__steps {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .routely-page {
+    padding: var(--routely-space-md);
+  }
+
+  .routely-illustration__label {
+    left: var(--routely-space-md);
+    top: var(--routely-space-md);
+  }
+
+  .routely-illustration__note {
+    bottom: var(--routely-space-sm);
+    right: var(--routely-space-sm);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .routely-appearance-notice {
+    animation: none;
+  }
+  .routely-button,
+  .routely-field__input {
+    transition: none;
+  }
+
+  .routely-button:hover:not(:disabled),
+  .routely-button:active:not(:disabled) {
+    transform: none;
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "name": "routely",
+  "version": "0.0.0",
+  "private": true,
+  "packageManager": "pnpm@10.17.1",
+  "engines": {
+    "node": ">=20.19.0",
+    "pnpm": ">=10.0.0"
+  },
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "preview:entry": "turbo run dev --filter=@routely/entry...",
+    "preview:customer": "turbo run dev --filter=@routely/customer...",
+    "preview:rider": "turbo run dev --filter=@routely/rider...",
+    "preview:owner": "turbo run dev --filter=@routely/owner...",
+    "preview:agent": "turbo run dev --filter=@routely/agent...",
+    "preview:admin": "turbo run dev --filter=@routely/admin...",
+    "preview:partner": "turbo run dev --filter=@routely/partner...",
+    "lint": "turbo run lint",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "typecheck": "turbo run typecheck",
+    "test": "turbo run test",
+    "clean": "turbo run clean"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.30",
+    "@typescript-eslint/eslint-plugin": "^8.33.1",
+    "@typescript-eslint/parser": "^8.33.1",
+    "eslint": "^10.15.0",
+    "eslint-config-next": "^16.4.6",
+    "prettier": "^3.5.3",
+    "turbo": "^2.5.4",
+    "typescript": "^5.8.3"
+  }
+}

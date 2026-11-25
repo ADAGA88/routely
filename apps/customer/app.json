@@ -1,0 +1,22 @@
+{
+  "expo": {
+    "name": "Routely Customer",
+    "slug": "routely-customer",
+    "scheme": "routely-customer",
+    "version": "0.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "automatic",
+    "platforms": ["ios", "android", "web"],
+    "plugins": [
+      "expo-router",
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Allow Routely to choose a photo of your parcel.",
+          "cameraPermission": "Allow Routely to take a photo of your parcel.",
+          "microphonePermission": false
+        }
+      ]
+    ]
+  }
+}

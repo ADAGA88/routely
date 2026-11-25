@@ -1,0 +1,12 @@
+{
+  "expo": {
+    "name": "Routely Owner",
+    "slug": "routely-owner",
+    "scheme": "routely-owner",
+    "version": "0.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "automatic",
+    "platforms": ["ios", "android", "web"],
+    "plugins": ["expo-router"]
+  }
+}

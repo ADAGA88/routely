@@ -1,0 +1,34 @@
+{
+  "name": "@routely/brand-assets",
+  "version": "0.0.0",
+  "private": true,
+  "files": [
+    "src/assets/routely-logo.png",
+    "src/assets/delivery-request-sample.png",
+    "src/assets/rider-avatar-reference.png",
+    "src/assets/owner-motorcycle-preview.png",
+    "src/assets/owner-profile-reference.png",
+    "src/assets/agent-profile-reference.png",
+    "src/assets/agent-tasks-blended.png",
+    "src/assets/agent-tasks-cutout.png",
+    "src/assets/google-signin-light.png",
+    "src/assets/google-signin-light-ios.png",
+    "src/assets/fonts"
+  ],
+  "exports": {
+    "./routely-logo.png": "./src/assets/routely-logo.png",
+    "./delivery-request-sample.png": "./src/assets/delivery-request-sample.png",
+    "./rider-avatar-reference.png": "./src/assets/rider-avatar-reference.png",
+    "./owner-motorcycle-preview.png": "./src/assets/owner-motorcycle-preview.png",
+    "./owner-profile-reference.png": "./src/assets/owner-profile-reference.png",
+    "./agent-profile-reference.png": "./src/assets/agent-profile-reference.png",
+    "./agent-tasks-blended.png": "./src/assets/agent-tasks-blended.png",
+    "./agent-tasks-cutout.png": "./src/assets/agent-tasks-cutout.png",
+    "./google-signin-light.png": "./src/assets/google-signin-light.png",
+    "./google-signin-light-ios.png": "./src/assets/google-signin-light-ios.png",
+    "./fonts/poppins-400.ttf": "./src/assets/fonts/Poppins-Regular.ttf",
+    "./fonts/poppins-500.ttf": "./src/assets/fonts/Poppins-Medium.ttf",
+    "./fonts/poppins-600.ttf": "./src/assets/fonts/Poppins-SemiBold.ttf",
+    "./fonts/poppins-700.ttf": "./src/assets/fonts/Poppins-Bold.ttf"
+  }
+}
