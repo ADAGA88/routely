@@ -1,5 +1,5 @@
 import Constants from "expo-constants";
-import { Stack } from "expo-router";
+import { Stack, usePathname } from "expo-router";
 import { useCallback, useEffect, useState } from "react";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { StatusBar } from "expo-status-bar";
@@ -28,6 +28,7 @@ function errorMessage(error: unknown): string {
 }
 
 export default function RootLayout() {
+  const pathname = usePathname();
   const [fontsLoaded, fontError] = useRoutelyFonts();
   const [startup, setStartup] = useState<StartupState>({ status: "loading" });
   const [splashEntranceComplete, setSplashEntranceComplete] = useState(false);
@@ -85,13 +86,27 @@ export default function RootLayout() {
     return <SplashScreen key="loading" onEntranceComplete={completeSplashEntrance} />;
   }
 
+  const previewHasHeader =
+    isDemoApk &&
+    [
+      "/demo/customer",
+      "/demo/rider",
+      "/dashboard-section",
+      "/send-package",
+      "/delivery-journey",
+      "/tracking-order",
+    ].includes(pathname);
+
   return (
     <SafeAreaProvider>
       <WebBaseStyles />
       <StatusBar style="dark" />
       <EntryPreferencesProvider initialPreferences={startup.preferences}>
         <AppearanceProvider appName="entry">
-          <AppearanceFrame>
+          <AppearanceFrame
+            accentBackground={isDemoApk && pathname === "/demo/rider"}
+            showSwitch={!previewHasHeader}
+          >
             <Stack screenOptions={{ headerShown: false }} />
           </AppearanceFrame>
         </AppearanceProvider>

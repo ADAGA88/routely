@@ -1,4 +1,4 @@
-import { Alert, Pressable, Text, View } from "react-native";
+import { Pressable, Text, View } from "react-native";
 import { Redirect, useLocalSearchParams, useRouter } from "expo-router";
 import { designTokens, getFontFamily } from "@routely/design-tokens";
 import { SenderDashboardScreen } from "../../../customer/src/features/dashboard/sender-dashboard-screen";
@@ -17,9 +17,6 @@ export default function DemoDashboardRoute() {
 
   if (!isDemoApk || !isPublicExperience(role)) return <Redirect href="/" />;
 
-  const unavailable = () =>
-    Alert.alert("Demo preview", "This action is not available in the combined demo.");
-
   return (
     <View style={{ flex: 1 }}>
       <Pressable
@@ -35,27 +32,33 @@ export default function DemoDashboardRoute() {
             textAlign: "center",
           }}
         >
-          Demo only · Switch experience
+          Switch experience
         </Text>
       </Pressable>
-      {role === "customer" ? <SenderDashboardScreen onPreviewUnavailable={unavailable} /> : null}
+      {role === "customer" ? <SenderDashboardScreen /> : null}
       {role === "owner" ? <OwnerDashboardScreen /> : null}
       {role === "agent" ? <AgentDashboardScreen /> : null}
       {role === "rider" ? (
         <DashboardScreen
           currentDelivery={activeDeliveryPreview}
-          onOpenRequest={unavailable}
-          onOpenDeliveries={unavailable}
-          onOpenBikes={unavailable}
-          onOpenDeliveryHistory={unavailable}
-          onOpenHistoryDetail={unavailable}
-          onOpenEarnings={unavailable}
-          onOpenProfile={unavailable}
-          onOpenSupport={unavailable}
-          onOpenVerification={unavailable}
-          onOpenDeliveryRequests={unavailable}
-          onOpenCurrentDelivery={unavailable}
-          onOpenTopUp={unavailable}
+          onOpenRequest={() => router.push("/delivery-request")}
+          onOpenDeliveries={() => router.replace("/deliveries")}
+          onOpenBikes={() => router.push("/bikes")}
+          onOpenDeliveryHistory={() =>
+            router.push({ pathname: "/deliveries", params: { tab: "history" } })
+          }
+          onOpenHistoryDetail={(deliveryId) =>
+            router.push({ pathname: "/delivery-history", params: { deliveryId } })
+          }
+          onOpenEarnings={() => router.replace("/earnings")}
+          onOpenProfile={() => router.replace("/profile")}
+          onOpenSupport={() => router.push("/support")}
+          onOpenVerification={() => router.push("/verification")}
+          onOpenDeliveryRequests={() => router.push("/delivery-requests")}
+          onOpenCurrentDelivery={(hasDelivery) =>
+            router.push(hasDelivery ? "/active-delivery" : "/delivery-requests")
+          }
+          onOpenTopUp={() => router.push("/wallet-top-up")}
         />
       ) : null}
     </View>

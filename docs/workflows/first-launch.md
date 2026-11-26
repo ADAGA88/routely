@@ -36,9 +36,15 @@ pnpm workspace entry point correctly; Entry's Metro configuration still watches 
 The demo has its own app ID and URL scheme, does not initialize Supabase, and accepts any
 phone/email and password (including empty fields) for preview only. It never authenticates or
 grants permissions; do not enter real credentials. Use the banner to switch experiences.
-Customer and Rider dashboard actions that need other screens show an unavailable message in this
-combined demo; Agent task navigation remains local. Owner and Rider examples are not live data.
+Customer and Rider dashboard actions open their existing preview screens inside Entry; Agent task
+navigation remains local. Example orders, requests, prices and Rider or Owner figures are not live
+data. Booking, dispatch acceptance, delivery actions and payments remain disconnected.
 This is not a production build or a substitute for server-side authentication and authorization.
+
+The root `codemagic.yaml` builds this demo from the committed Entry Android project and publishes
+the release APK as a build artifact. The release variant currently uses the checked-in debug
+signing configuration and is for testing only, not production distribution. It requires the
+workspace packages and dashboard source files even though it builds only the Entry application.
 
 ## Boundaries
 
