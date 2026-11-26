@@ -1,0 +1,27 @@
+workflows:
+  android-demo:
+    name: Routely Android demo APK
+    instance_type: mac_mini_m2
+    max_build_duration: 120
+    environment:
+      node: 22.20.0
+      java: 17
+      vars:
+        ROUTELY_DEMO_APK: "1"
+        EXPO_NO_METRO_WORKSPACE_ROOT: "1"
+    scripts:
+      - name: Install workspace dependencies
+        script: |
+          cd "$CM_BUILD_DIR"
+          corepack pnpm install --frozen-lockfile
+      - name: Build shared packages
+        script: |
+          cd "$CM_BUILD_DIR"
+          corepack pnpm exec turbo run build --filter='@routely/ui-mobile...' --filter='@routely/auth...'
+      - name: Build demo release APK
+        script: |
+          cd "$CM_BUILD_DIR/apps/entry/android"
+          bash ./gradlew :app:assembleRelease --no-daemon
+          test -s app/build/outputs/apk/release/app-release.apk
+    artifacts:
+      - apps/entry/android/app/build/outputs/apk/release/app-release.apk
